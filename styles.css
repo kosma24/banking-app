@@ -1,0 +1,154 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+html, body {
+	height: auto;
+	-ms-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body {
+    color: purple;
+	background-color: white;
+	font-size: 1em;
+	font-family: Lato, "Open Sans", Verdana, sans-serif;
+}
+header {
+    height: 100px;
+    width: 60%;
+    margin: 25px auto 0;
+    text-align: center;
+}
+.switch {
+    display: inline-block;
+    margin: 20px;
+    padding: 20px;
+    width: 140px;
+    border-radius: 15px;
+    border: 1px solid purple;
+    cursor: hand;
+    cursor: pointer;
+}
+.switch:hover {
+    font-weight: bold;
+    background-color: #d49bdd;
+}
+.container {
+    position: relative;
+    margin: 0 auto;
+    width: 412px;
+    height: 800px;
+}
+.phone-frame {
+    position: absolute;
+}
+.phone-screen {
+    position: absolute;
+    margin-top: 90px;
+    margin-left: 21px;
+    width: 371px;
+    height: 572px;
+    text-align: center;
+    background-color: #f2f0ef;
+}
+
+.phone-screen > * {
+    font-size: 1.1em;
+    color: black;
+}
+
+#reg-input {
+    width: 50%;
+    padding: 10px;
+    margin: 5px 0 10px;
+}
+.reg-field {
+    margin-top: 50px;
+    height: auto;
+}
+.btn {
+    margin: 15px;
+    width: 75%;
+    height: 40px;
+    border: 2px solid #59045e;
+    color: white;
+    font-weight: bold;
+    background-color: #59045e;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #7b0f82;
+}
+.header-screen {
+    height: 70px;
+    background-color: #59045e;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.header-screen span {
+    padding: 20px;
+}
+.pac-numbers {
+    text-align: center;
+    margin: 0 auto;
+    width: 70%;
+}
+.pac-num {
+    display: inline-block;
+    margin: 5px 10px 0;
+}
+input {
+    font-size: 1.2em;
+}
+
+.pac-num p {
+    color: #474444;
+    font-size: 0.8em;
+}
+.pac-input {
+    width: 15px;
+    padding: 10px 15px;
+    vertical-align: middle;
+}
+.account {
+    background-color: white;
+    padding: 25px;
+    vertical-align: top;
+    height: 35px;
+    border-bottom: 1px solid #e2e0e2;
+    cursor: pointer;
+}
+.account:hover {
+    background-color: #f2f0ef;
+}
+.acc-name {
+    float: left;
+    font-size: 1.2em;
+    color: #474444;
+    font-weight: bold;
+}
+.acc-amount {
+    float: right;
+    font-size: 1.5em;
+}
+
+.footer-screen {
+    bottom: 0px;
+}
+
+footer {
+    margin-top: 100px;
+}
+footer > div {
+    font-size: 0.8em;
+    border-top: 1px solid purple;
+    height: 75px;
+    width: 60%;
+    margin: 0px auto;
+    padding: 10px;
+    text-align: center;
+    color: #312E32;
+}
