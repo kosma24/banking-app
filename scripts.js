@@ -5,12 +5,20 @@ function getRandomFloat(min, max) {
     return (Math.random() * (max - min) + min);
 }
 
+function getRandomInt(min, max) {
+    return Math.floor(getRandomFloat(min,max));
+}
+
 var current = $("#current-amount");
+var detBalance = $("#detail-balance");
 current.text(getRandomFloat(-50, 500).toFixed(2));
+detBalance.text(("\u20AC" + current.text()));
 if (Number(current.text()) < 0) {
     current.css("color", red);
+    detBalance.css("color", red);
 } else {
     current.css("color", green);
+    detBalance.css("color", green);
 }
 
 var saving = $("#saving-amount");
@@ -30,6 +38,10 @@ if (Number(credit.text()) < 0) {
     credit.css("color", green);
 }
 
+var detOverDraft = $("#detail-overdraft");
+detOverDraft.text("\u20AC" + getRandomInt(3,10) * 100 + ".00");
+
+
 $("#login-switch").click(function() {
     $(".phone-screen").hide(1);
     $("#login-screen").show(1);
@@ -38,9 +50,9 @@ $("#acc-switch").click(function() {
     $(".phone-screen").hide(1);
     $("#account-screen").show(1);
 });
-$("#trans-switch").click(function() {
+$("#details-switch").click(function() {
     $(".phone-screen").hide(1);
-    $("#trans-screen").show(1);
+    $("#detail-screen").show(1);
 });
 
 $("#account-screen").show(1);

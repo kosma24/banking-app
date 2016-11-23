@@ -20,8 +20,8 @@
     <div id="acc-switch"  class="switch">
         Accounts page
     </div>
-    <div id="trans-switch" class="switch">
-        Transaction page
+    <div id="details-switch" class="switch">
+        Details page
     </div>
 </div>
 <header>
@@ -30,9 +30,9 @@
 
 <div class="container">
     <img class="phone-frame" src="phone.png" alt="phone frame" width="412px" height="800px"/>
-    <div id="login-screen" class="phone-screen" >
+    <div id="login-screen" class="phone-screen">
         <div class="header-screen">
-            <span style="float: right;">Help</span>
+            <span id="help" class="support-btn float-r">Help</span>
         </div>
 
         <div class="reg-field">
@@ -61,16 +61,16 @@
         <button type="button" name="log-in" id="login-button" class="btn">Log in</button>
         <a href="#" style="display: block;">Forgot login?</a>
 
-        <img src="finger_print.png" alt="finger print button" width="75px" height="100px" style="margin: 25px"/>
+        <img id="fingerprint" src="finger_print.png" alt="finger print button" width="75px" height="100px" style="margin: 25px"/>
         <div class="footer-screen">
             <a href="#">Terms and Conditions</a>
         </div>
 
-
     </div>
-    <div id="account-screen" class="phone-screen" hidden>
+    <div id="account-screen" class="phone-screen">
         <div class="header-screen">
-            <span style="float: left;">Logout</span><span style="float: right;">Help</span>
+            <span id="logout" class="support-btn float-l">Logout</span>
+            <span id="help" class="support-btn float-r">Help</span>
         </div>
 
         <div id="current-acc" class="account">
@@ -90,8 +90,53 @@
 
         </div>
     </div>
-    <div class="phone-screen" id="trans-screen">
-        
+    <div id="detail-screen" class="phone-screen">
+        <div class="header-screen">
+            <span id="back" class="support-btn float-l">< Back</span>
+            <span id="help" class="support-btn float-r">Help</span>
+        </div>
+        <div class="details-field">
+            <h3>Current</h3>
+            <div class="detail">
+                <span class="float-l">Balance</span>
+                <span class="float-r" id="detail-balance"></span>
+            </div>
+            <div class="detail">
+                <span class="float-l">Overdraft</span>
+                <span class="float-r" id="detail-overdraft"></span>
+            </div>
+            <div class="detail">
+                <span class="float-l">IBAN</span>
+                <span class="float-r" id="detail-iban"></span>
+            </div>
+            <div class="detail">
+                <span class="float-l">Account Number</span>
+                <span class="float-r" id="detail-accnum"></span>
+            </div>
+            <div class="detail">
+                <span class="float-l">BIC</span>
+                <span class="float-r" id="detail-bic"></span>
+            </div>
+        </div>
+        <div class="transaction-field">
+            <h3>Transactions</h3>
+            <div class="transaction">
+                <span class="float-l" id="trans-name">Apple Green</span>
+                <span class="float-r tnum" id="trans-amount">32.50</span>
+            </div>
+            <div class="transaction">
+                <span class="float-l" id="trans-name">Netflix</span>
+                <span class="float-r tnum" id="trans-amount">32.50</span>
+            </div>
+            <div class="transaction">
+                <span class="float-l" id="trans-name">Employer</span>
+                <span class="float-r tnum" id="trans-amount">32.50</span>
+            </div>
+            <div class="transaction">
+                <span class="float-l" id="trans-name">Tesco</span>
+                <span class="float-r tnum" id="trans-amount">32.50</span>
+            </div>
+        </div>
     </div>
 </div>
 

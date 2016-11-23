@@ -44,6 +44,12 @@ header {
 .phone-frame {
     position: absolute;
 }
+.float-r {
+    float: right;
+}
+.float-l {
+    float: left;
+}
 .phone-screen {
     position: absolute;
     margin-top: 90px;
@@ -51,9 +57,11 @@ header {
     width: 371px;
     height: 572px;
     text-align: center;
-    background-color: #f2f0ef;
+    background-color: #eaeaea;
 }
-
+#login-screen {
+    background-color: #eaeaea;
+}
 .phone-screen > * {
     font-size: 1.1em;
     color: black;
@@ -82,19 +90,31 @@ header {
     background-color: #7b0f82;
 }
 .header-screen {
-    height: 70px;
+    height: 12%;
     background-color: #59045e;
     color: white;
     font-size: 1.5em;
     font-weight: bold;
 }
-.header-screen span {
+.support-btn {
     padding: 20px;
+    cursor: pointer;
+    width: 80px;
+}
+.support-btn:hover {
+    background-color: #7b0f82
 }
 .pac-numbers {
     text-align: center;
     margin: 0 auto;
     width: 70%;
+}
+#fingerprint {
+    cursor: pointer;
+    opacity: 0.5;
+}
+#fingerprint:hover {
+    opacity: 1;
 }
 .pac-num {
     display: inline-block;
@@ -103,7 +123,6 @@ header {
 input {
     font-size: 1.2em;
 }
-
 .pac-num p {
     color: #474444;
     font-size: 0.8em;
@@ -116,7 +135,6 @@ input {
 .account {
     background-color: white;
     padding: 25px;
-    vertical-align: top;
     height: 35px;
     border-bottom: 1px solid #e2e0e2;
     cursor: pointer;
@@ -134,11 +152,29 @@ input {
     float: right;
     font-size: 1.5em;
 }
-
-.footer-screen {
-    bottom: 0px;
+.details-field {
+    background-color: lightblue;
 }
-
+.transaction-field {
+    background-color: lightgreen;
+}
+.detail, .transaction {
+    padding: 10px 20px 30px;
+    background-color: white;
+    border-bottom: 1px solid #e2e0e2;
+    vertical-align: top;
+}
+.tnum  {
+    font-weight: bold;
+}
+#detail-balance {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+h3 {
+    background-color: #37013a;
+    color: white;
+}
 footer {
     margin-top: 100px;
 }
