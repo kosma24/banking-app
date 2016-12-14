@@ -11,7 +11,7 @@ html, body {
 }
 body {
     color: purple;
-	background-color: white;
+	background-color: #fbf7ff;
 	font-size: 1em;
 	font-family: Lato, "Open Sans", Verdana, sans-serif;
 }
@@ -27,13 +27,14 @@ header {
     padding: 20px;
     width: 140px;
     border-radius: 15px;
-    border: 1px solid purple;
     cursor: hand;
     cursor: pointer;
+    background-color: white;
+    box-shadow: 10px 10px 10px #888888;
 }
 .switch:hover {
     font-weight: bold;
-    background-color: #d49bdd;
+    background-color: #e5c9ff;
 }
 .container {
     position: relative;
@@ -43,6 +44,15 @@ header {
 }
 .phone-frame {
     position: absolute;
+}
+#guide {
+    background-color: white;
+    box-shadow: 10px 10px 10px #888888;
+    border-radius: 15px;
+    height: 350px;
+    width: 250px;
+    margin: 75px 100px;
+    padding: 15px;
 }
 .float-r {
     float: right;
@@ -171,7 +181,10 @@ input {
     width: 100%;
 }
 #fingers {
-    margin: 50px 25px;
+    margin: 75px 100px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 10px 10px 10px #888888
 }
 .finger-container {
     border-radius: 10px;
@@ -182,9 +195,15 @@ input {
 #bad-finger-frame {
     border-color: red;
 }
+#bad-finger-frame:hover {
+    background-color: #ffa3a3;
+}
 #good-finger-frame {
     border-color: green;
     height: 160px;
+}
+#good-finger-frame:hover {
+    background-color: #e0ffe6;
 }
 .tnum  {
     font-weight: bold;

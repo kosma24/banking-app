@@ -5,17 +5,13 @@ const LOGIN = 0;
 const ACCOUNT = 1;
 const DETAILS = 2;
 
+var STATE = LOGIN;
+generateAmounts();
 
 $("#account-screen").hide(0);
 $("#detail-screen").hide(0);
 $("#login-screen").show(0);
-var STATE = LOGIN;
 
-
-
-generateAmounts();
-
-var correctThumb = false;
 $("#good-finger").draggable({
     revert: 'invalid'
 });
@@ -34,38 +30,16 @@ $("#bad-finger").draggable({
         return true;
     }
 });
-$("#good-finger, #bad-finger").css('z-index','1000');
 $("#fingerprint-area").droppable({
     accept: '#good-finger',
     drop: function(event, ui) {
         var id = ui.draggable.attr("id");
         if ($("#good-finger").is($("#"+id))){
             $("#good-finger").hide(1000);
-            console.log("TRUEEEEE");
             setTimeout(gotoAccount, 1000);
-        } else {
-            console.log("FALLLLLSE");
         }
     }
 });
-
-
-
-var gotoLogin = function () {
-    $(".phone-screen").hide(1);
-    $("#login-screen").show(1);
-    STATE = LOGIN;
-}
-var gotoAccount = function() {
-    $(".phone-screen").hide(1);
-    $("#account-screen").show(1);
-    STATE = ACCOUNT;
-}
-var gotoDetail = function() {
-    $(".phone-screen").hide(1);
-    $("#detail-screen").show(1);
-    STATE = DETAILS;
-}
 
 $("#login-switch").click(gotoLogin);
 $("#acc-switch").click(gotoAccount);
@@ -73,6 +47,39 @@ $("#details-switch").click(gotoDetail);
 $("#logout").on('click', function() {
      window.location = "https://ca357.koltunm.com/";
 });
+$("#good-finger, #bad-finger").css('z-index','1000');
+$("#login-button").click(function() {
+    var regnum = $("#reg-input").val();
+    var pac1 = $("#pac1").val();
+    var pac3 = $("#pac3").val();
+    var pac5 = $("#pac5").val();
+    if (pac1 == 1 && pac3 == 2 && pac5 == 3 && regnum == 12345678) {
+        gotoAccount();
+    } else {
+        $("input").css({
+            "border": "2px solid red"
+        });
+        setTimeout(function() {
+            $("input").css({
+                "border": ""
+            });
+        }, 3500);
+    }
+});
+
+var gotoLogin = function() {
+    STATE = LOGIN;
+    $("#login-screen").show(0);
+}
+var gotoAccount = function() {
+    STATE = ACCOUNT;
+    $("#account-screen").show(0);
+    $("#fingers").hide(500);
+}
+var gotoDetail = function() {
+    STATE = DETAILS;
+    $("#detail-screen").show(0);
+}
 
 // Below function is absolutely horrible and should be fixed
 function generateAmounts() {
