@@ -4,13 +4,14 @@
   <meta charset="utf-8"/>
   <title>CA357 Project</title>
 
-  <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700,400'>
+  <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700,400'>
   <link rel="stylesheet" type="text/css" href="styles.css">
 <!--
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.5.0/annyang.min.js"></script>
 
   <script type="text/javascript" src="voice_control.js"></script>
 -->
+
 </head>
 <body>
 <div style="text-align: center; width: auto; margin: 0 auto;">
@@ -28,8 +29,16 @@
     <h1>Banking Phone App</h1>
 </header>
 
+<div id="fingers" class="float-l">
+    <div class="finger-container" id="bad-finger-frame">
+        <img src="finger.png" id="bad-finger" alt="bad-finger" width="90px" height="150px"/>
+    </div>
+    <div class="finger-container" id="good-finger-frame">
+        <img src="finger.png" id="good-finger" alt="good-finger" width="90px" height="150px"/>
+    </div>
+</div>
 <div class="container">
-    <img class="phone-frame" src="phone.png" alt="phone frame" width="412px" height="800px"/>
+    <img class="phone-frame" src="phone.png" alt="phone frame" width="412px" height="800px" />
     <div id="login-screen" class="phone-screen">
         <div class="header-screen">
             <span id="help" class="support-btn float-r">Help</span>
@@ -61,7 +70,9 @@
         <button type="button" name="log-in" id="login-button" class="btn">Log in</button>
         <a href="#" style="display: block;">Forgot login?</a>
 
-        <img id="fingerprint" src="finger_print.png" alt="finger print button" width="75px" height="100px" style="margin: 25px"/>
+        <div id="fingerprint-area">
+            <img id="fingerprint" src="finger_print.png" alt="finger print button" width="75px" height="100px" style="margin: 25px"/>
+        </div>
         <div class="footer-screen">
             <a href="#">Terms and Conditions</a>
         </div>
@@ -106,35 +117,35 @@
                 <span class="float-r" id="detail-overdraft"></span>
             </div>
             <div class="detail">
-                <span class="float-l">IBAN</span>
-                <span class="float-r" id="detail-iban"></span>
-            </div>
-            <div class="detail">
                 <span class="float-l">Account Number</span>
-                <span class="float-r" id="detail-accnum"></span>
+                <span class="float-r smaller" id="detail-accnum">12345678</span>
             </div>
             <div class="detail">
                 <span class="float-l">BIC</span>
-                <span class="float-r" id="detail-bic"></span>
+                <span class="float-r smaller" id="detail-bic">BOFIIE2D</span>
+            </div>
+            <div class="detail">
+                <span class="float-l">IBAN</span>
+                <span class="float-r smaller" id="detail-iban">IE64BOFI90583812345678</span>
             </div>
         </div>
         <div class="transaction-field">
             <h3>Transactions</h3>
             <div class="transaction">
-                <span class="float-l" id="trans-name">Apple Green</span>
-                <span class="float-r tnum" id="trans-amount">32.50</span>
+                <span class="float-l" id="trans1-name">Apple Green</span>
+                <span class="float-r tnum" id="trans1-amount"></span>
             </div>
             <div class="transaction">
-                <span class="float-l" id="trans-name">Netflix</span>
-                <span class="float-r tnum" id="trans-amount">32.50</span>
+                <span class="float-l" id="trans2-name">Netflix</span>
+                <span class="float-r tnum" id="trans2-amount"></span>
             </div>
             <div class="transaction">
-                <span class="float-l" id="trans-name">Employer</span>
-                <span class="float-r tnum" id="trans-amount">32.50</span>
+                <span class="float-l" id="trans3-name">Employer</span>
+                <span class="float-r tnum" id="trans3-amount"></span>
             </div>
             <div class="transaction">
-                <span class="float-l" id="trans-name">Tesco</span>
-                <span class="float-r tnum" id="trans-amount">32.50</span>
+                <span class="float-l" id="trans4-name">Tesco</span>
+                <span class="float-r tnum" id="trans4-amount"></span>
             </div>
         </div>
     </div>
@@ -147,6 +158,7 @@
 	</div>
 </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script type="text/javascript" src="scripts.js"></script>
 </body>
 </html>
