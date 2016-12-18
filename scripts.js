@@ -2,8 +2,18 @@ const RED = "#d11c0c"
 const GREEN = "#3aa812"
 
 const GUIDELOGIN = "<h4>CA357 HCI Project</h4><p>Welcome to a login screen of the <a href='https://ca357.koltunm.com/'>Phone Banking App</a>. Please keep in mind this is only a prototype design. Its purpose is to demonstrate features improving human-computer interface of the app.</p> <h4>Fingerprint Authentication</h4><p> Drag one of the <span>fingers</span> from the left pane and drop it onto the <span>finger-print area</span> of the phone. This activity invokes the authenticaion process. If the fingerpint matches, the process succeeds and the app displays the next page, otherwise a user is notified about the failure. <br><br> Alternatively...<br><br> Normal login proecedure can also be used. Please enter these dummy credential numbers and click 'Log in' button: <br><br> Registration: <span>12345678</span> <br> PAC: <span>1 2 3</span></p>";
-const GUIDEACCOUNT = "<h4>CA357 HCI Project</h4><p>This screen displays balance of user's accounts.<h4>Voice Commands feature</h4><p>A user can query details about their accounts using voice commands.</p><p>For example, to obtain details about the current account, say: <br><br><span>SELECT CURRENT</span><br><span>BALANCE CURRENT</span><br><span>BIC CURRENT</span></p><p>Other commands are:<br><br><span>Logout</span><br><span>Help</span></p>";
-const GUIDEDETAILS = "<h4>CA357 HCI Project</h4><p>";
+const GUIDEACCOUNT = "<h4>CA357 HCI Project</h4><p>This screen displays balance of user's accounts.<h4>Voice Control feature</h4><p>A user can query details about their accounts using voice commands.</p><p>For example, to obtain details about the current account, say: <br><br><span>SELECT CURRENT</span><br><span>BALANCE CURRENT</span><br><span>BIC CURRENT</span></p><p>Other commands are:<br><br><span>Logout</span><br><span>Help</span></p>";
+const GUIDEDETAILS = "<h4>CA357 HCI Project</h4><p>The details screen contains relevant information about selected account.<h4>Voice commands</h4><p>A user can query specific details about their accounts using voice commands.\
+    <br>\
+    <br><span>GET BALANCE</span>\
+    <br><span>GET LAST TRANSACTION</span>\
+    <br><span>GET BIC</span>\
+    <br><span>GET IBAN</span>\
+    <p>User can also select another account \
+    <br>\
+    <br><span>SELECT SAVING</span>\
+    <br><span>SELECT CREDIT</span>\
+    <p>Other commands are:<br><br><span>Logout</span><br><span>Help</span></p>";
 
 const LOGIN = 0;
 const ACCOUNT = 1;
@@ -14,8 +24,10 @@ generateAmounts();
 setTimeout(function() {
     setGuide(GUIDELOGIN, 0);
     $("#fingers").show(500);
-} ,1500);
-
+}, 1500);
+setTimeout(function() {
+    $("#warning-box").show(500);
+}, 2500);
 
 $("#account-screen").hide(0);
 $("#detail-screen").hide(0);
@@ -95,7 +107,9 @@ $("#back").click(function() {
     $("#detail-screen").hide(0);
     gotoAccount();
 });
-
+$("#close-warning").click(function() {
+    $("#warning-box").hide(500);
+});
 
 function gotoLogin() {
     STATE = LOGIN;
