@@ -1,12 +1,21 @@
 const RED = "#d11c0c"
 const GREEN = "#3aa812"
 
+const GUIDELOGIN = "<h4>CA357 HCI Project</h4><p>Welcome to a login screen of the <a href='https://ca357.koltunm.com/'>Phone Banking App</a>. Please keep in mind this is only a prototype design. Its purpose is to demonstrate features improving human-computer interface of the app.</p> <h4>Fingerprint Authentication</h4><p> Drag one of the <span>fingers</span> from the left pane and drop it onto the <span>finger-print area</span> of the phone. This activity invokes the authenticaion process. If the fingerpint matches, the process succeeds and the app displays the next page, otherwise a user is notified about the failure. <br><br> Alternatively...<br><br> Normal login proecedure can also be used. Please enter these dummy credential numbers and click 'Log in' button: <br><br> Registration: <span>12345678</span> <br> PAC: <span>1 2 3</span></p>";
+const GUIDEACCOUNT = "<h4>CA357 HCI Project</h4><p>This screen displays balance of user's accounts.<h4>Voice Commands feature</h4><p>A user can query details about their accounts using voice commands.</p><p>For example, to obtain details about the current account, say: <br><br><span>SELECT CURRENT</span><br><span>BALANCE CURRENT</span><br><span>BIC CURRENT</span></p><p>Other commands are:<br><br><span>Logout</span><br><span>Help</span></p>";
+const GUIDEDETAILS = "<h4>CA357 HCI Project</h4><p>";
+
 const LOGIN = 0;
 const ACCOUNT = 1;
 const DETAILS = 2;
 
 var STATE = LOGIN;
 generateAmounts();
+setTimeout(function() {
+    setGuide(GUIDELOGIN, 0);
+    $("#fingers").show(500);
+} ,1500);
+
 
 $("#account-screen").hide(0);
 $("#detail-screen").hide(0);
@@ -21,6 +30,7 @@ $("#bad-finger").draggable({
             "border": "5px solid red",
             "border-radius": "5px"
         });
+        notification("Authentication has failed.");
         setTimeout(function() {
             $("#fingerprint").css({
                 "border": "",
@@ -41,10 +51,16 @@ $("#fingerprint-area").droppable({
     }
 });
 
-$("#login-switch").click(gotoLogin);
-$("#acc-switch").click(gotoAccount);
-$("#details-switch").click(gotoDetail);
-$("#logout").on('click', function() {
+$("#login-switch").click(function() {
+    gotoLogin();
+});
+$("#acc-switch").click(function() {
+    gotoAccount();
+});
+$("#details-switch").click(function() {
+    gotoDetail();
+});
+$("#logout").click(function() {
      window.location = "https://ca357.koltunm.com/";
 });
 $("#good-finger, #bad-finger").css('z-index','1000');
@@ -66,21 +82,60 @@ $("#login-button").click(function() {
         }, 3500);
     }
 });
+$("#current-acc").click(function() {
+    gotoDetail();
+});
+$("#saving-acc").click(function() {
+    notification("We're sorry, but only CURRENT account is supported.");
+});
+$("#credit-acc").click(function() {
+    notification("We're sorry, but only CURRENT account is supported.");
+});
+$("#back").click(function() {
+    $("#detail-screen").hide(0);
+    gotoAccount();
+});
 
-var gotoLogin = function() {
+
+function gotoLogin() {
     STATE = LOGIN;
     $("#login-screen").show(0);
 }
-var gotoAccount = function() {
+function gotoAccount() {
     STATE = ACCOUNT;
     $("#account-screen").show(0);
     $("#fingers").hide(500);
+    setGuide(GUIDEACCOUNT, 500);
 }
-var gotoDetail = function() {
+function gotoDetail() {
     STATE = DETAILS;
     $("#detail-screen").show(0);
+    $("#account-screen").show(0);
+    $("#fingers").hide(500);
+    setGuide(GUIDEDETAILS, 500);
 }
 
+
+function showFingers() {
+    $("#fingers").hide(500);
+    setTimeout(function() {
+        $("#fingers").show(500);
+    },500);
+}
+function setGuide(text, wait) {
+    $("#guide").hide(500);
+    setTimeout(function() {
+        $("#guide").html(text);
+        $("#guide").show(500);
+    },wait);
+}
+function notification(message) {
+    $("#notification").text(message);
+    $("#notification").show(300);
+    setTimeout(function() {
+        $("#notification").hide(400);
+    }, 3500);
+}
 // Below function is absolutely horrible and should be fixed
 function generateAmounts() {
     var current = $("#current-amount");

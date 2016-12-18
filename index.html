@@ -15,9 +15,7 @@
 </head>
 <body>
     <!--
--->
 <div style="text-align: center; width: auto; margin: 0 auto;">
-    <div id="login-switch" class="switch">
         Login page
     </div>
     <div id="acc-switch"  class="switch">
@@ -25,12 +23,24 @@
     </div>
     <div id="details-switch" class="switch">
         Details page
-    </div>
 </div>
+-->
+
+
+
+
+<!-- HEADER -->
 <header>
-    <h1>Banking Phone App</h1>
+    <div>
+        <h2>Banking Phone App</h2>
+    </div>
 </header>
-<div id="fingers" class="float-l">
+
+
+
+
+<!-- LEFT PANE -->
+<div id="fingers" class="float-l" hidden>
     <div class="finger-container" id="bad-finger-frame">
         <img src="finger.png" id="bad-finger" alt="bad-finger" width="90px" height="150px"/>
     </div>
@@ -38,11 +48,26 @@
         <img src="finger.png" id="good-finger" alt="good-finger" width="90px" height="150px"/>
     </div>
 </div>
-<div id="guide" class="float-r">
+
+
+
+
+
+<!-- RIGHT PANE -->
+<div id="guide" class="float-r" hidden>
+
 
 </div>
+
+
+
+
+
+
+<!-- PHONE -->
 <div class="container">
     <img class="phone-frame" src="phone.png" alt="phone frame" width="412px" height="800px" />
+    <div id="notification" hidden>Foo Bar</div>
     <div id="login-screen" class="phone-screen">
         <div class="header-screen">
             <span id="help" class="support-btn float-r">Help</span>
