@@ -85,7 +85,7 @@ $("#details-switch").click(function() {
     gotoDetail();
 });
 $("#logout").click(function() {
-     window.location = "https://ca357.koltunm.com/";
+     window.location = "https://ca357.koltunm.com/prototype.html";
 });
 $("#good-finger, #bad-finger").css('z-index','1000');
 $("#login-button").click(function() {
