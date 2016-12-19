@@ -1,3 +1,13 @@
+/*
+
+The code here is horrible and should not be taken
+as an example. It had been written only for demostrating purposes.
+
+
+*/
+
+
+
 if ('speechSynthesis' in window) {
     console.log("speechSynthesis is supported.");
 } else {

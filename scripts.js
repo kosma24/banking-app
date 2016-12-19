@@ -1,3 +1,15 @@
+/*
+
+The code here is horrible and should not be taken
+as an example. It had been written only for demostrating purposes.
+
+
+*/
+
+
+
+
+
 const RED = "#d11c0c"
 const GREEN = "#3aa812"
 
