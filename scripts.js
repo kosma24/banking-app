@@ -2,7 +2,7 @@ const RED = "#d11c0c"
 const GREEN = "#3aa812"
 
 const GUIDELOGIN = "<h4>CA357 HCI Project</h4><p>Welcome to a login screen of the <a href='https://ca357.koltunm.com/'>Phone Banking App</a>. Please keep in mind this is only a prototype design. Its purpose is to demonstrate features improving human-computer interface of the app.</p> <h4>Fingerprint Authentication</h4><p> Drag one of the <span>fingers</span> from the left pane and drop it onto the <span>finger-print area</span> of the phone. This activity invokes the authenticaion process. If the fingerpint matches, the process succeeds and the app displays the next page, otherwise a user is notified about the failure. <br><br> Alternatively...<br><br> Normal login proecedure can also be used. Please enter these dummy credential numbers and click 'Log in' button: <br><br> Registration: <span>12345678</span> <br> PAC: <span>1 2 3</span></p>";
-const GUIDEACCOUNT = "<h4>CA357 HCI Project</h4><p>This screen displays balance of user's accounts.<h4>Voice Control feature</h4><p>A user can query details about their accounts using voice commands. <span>Make sure you microphone extension is enabled and volume </span>. </p><p>For example, to obtain details about the current account, say: <br><br><span>SELECT CURRENT</span><br><span>BALANCE CURRENT</span><br><span>BIC CURRENT</span></p><p>Other commands are:<br><br><span>Logout</span><br><span>Help</span></p>";
+const GUIDEACCOUNT = "<h4>CA357 HCI Project</h4><p>This screen displays balance of user's accounts.<h4>Voice Control feature</h4><p>A user can query details about their accounts using voice commands. <span>Make sure you microphone extension is enabled and volume </span>. </p><p>For example, to obtain details about the current account, say: <br><br><span>SELECT CURRENT</span><br><span>BALANCE CURRENT</span><br><span>BIC CURRENT</span></p><p>Other commands are:<br><br><span>Logout</span><br><span>Help</span><br><span>List Commands</span></p>";
 const GUIDEDETAILS = "<h4>CA357 HCI Project</h4><p>The details screen contains relevant information about selected account.<h4>Voice commands</h4><p>A user can query specific details about their accounts using voice commands.\
     <br>\
     <br><span>GET BALANCE</span>\
@@ -13,7 +13,7 @@ const GUIDEDETAILS = "<h4>CA357 HCI Project</h4><p>The details screen contains r
     <br>\
     <br><span>SELECT SAVING</span>\
     <br><span>SELECT CREDIT</span>\
-    <p>Other commands are:<br><br><span>Logout</span><br><span>Help</span></p>";
+    <p>Other commands are:<br><br><span>Logout</span><br><span>Help</span><br><span>List Commands</span></p>";
 
 const LOGIN = 0;
 const ACCOUNT = 1;
@@ -112,6 +112,10 @@ $("#close-warning").click(function() {
 });
 $("#close-unsupported").click(function() {
     $("#unsupported").hide(500);
+});
+$("#help").click(function(){
+    speak("To select an account, use the command SELECT. For example, SELECT CURRENT.");
+    speak("To obtain specific information, either select the account, or, use command GET, followed by a name of the account and, desired piece of information. For example, GET CURRENT BALANCE. or, GET SAVING IBAN.");
 });
 
 function gotoLogin() {

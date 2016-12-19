@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>CA357 Project</title>
+
+  <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700,400'>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+<!--
+-->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.5.0/annyang.min.js"></script>
+
+
+
+</head>
+<body>
+
+<!-- Warning -->
+<div id="warning-box" hidden>
+    <div id="arrow" class="arrow-up"></div>
+    <div id="warning">
+        <div id="close-warning" class="float-r">
+            Close
+        </div>
+        <p id="warning-text">
+            Please make sure you allow microphone extension to work. Do not worry, we are not listening to you... or are we? muahaha.
+        </p>
+    </div>
+</div>
+
+
+
+<div id="unsupported" hidden>
+    <div id="close-unsupported" class="float-r">
+        Close
+    </div>
+    <p id="unsupported-text">
+        This browser is not supported. Please use Safari or Chrome.<br> Thank you.
+    </p>
+</div>
+
+
+
+
+<!-- HEADER -->
+<header>
+    <div>
+        <h2>Banking Phone App</h2>
+    </div>
+</header>
+
+
+
+<!-- LEFT PANE -->
+<div id="fingers" class="float-l" hidden>
+    <div class="finger-container" id="bad-finger-frame">
+        <img src="finger.png" id="bad-finger" alt="bad-finger" width="90px" height="150px"/>
+    </div>
+    <div class="finger-container" id="good-finger-frame">
+        <img src="finger.png" id="good-finger" alt="good-finger" width="90px" height="150px"/>
+    </div>
+</div>
+
+
+
+
+
+<!-- RIGHT PANE -->
+<div id="guide" class="float-r" hidden></div>
+
+
+
+
+
+
+<!-- PHONE -->
+<div class="container">
+    <img class="phone-frame" src="phone.png" alt="phone frame" width="412px" height="800px" />
+    <div id="notification" hidden>Foo Bar</div>
+    <div id="login-screen" class="phone-screen">
+        <div class="header-screen">
+            <span id="help" class="support-btn float-r">Help</span>
+        </div>
+
+        <div class="reg-field">
+            <p style="font-weight: bold;">Enter your 8 digit registration number</p>
+            <input type="text" name="reg-number" id="reg-input" maxlength="8" pattern="[0-9]">
+        </div>
+
+        <div class="pac-field">
+            <p style="font-weight: bold;">Enter your PAC digits</p>
+            <div class="pac-numbers">
+                <div class="pac-num">
+                    <input type="password" name="pac-1st" id="pac1" maxlength="1" class="pac-input">
+                    <p>1st</p>
+                </div>
+                <div class="pac-num">
+                    <input type="password" name="pac-3rd" id="pac3" maxlength="1" class="pac-input">
+                    <p>3rd</p>
+                </div>
+                <div class="pac-num">
+                    <input type="password" name="pac-5th" id="pac5" maxlength="1"class="pac-input">
+                    <p>5th</p>
+                </div>
+            </div>
+        </div>
+
+        <button type="button" name="log-in" id="login-button" class="btn">Log in</button>
+        <a href="#" style="display: block;">Forgot login?</a>
+
+        <div id="fingerprint-area">
+            <img id="fingerprint" src="finger_print.png" alt="finger print button" width="75px" height="100px" style="margin: 25px"/>
+        </div>
+        <div class="footer-screen">
+            <a href="#">Terms and Conditions</a>
+        </div>
+
+    </div>
+    <div id="account-screen" class="phone-screen">
+        <div class="header-screen">
+            <span id="logout" class="support-btn float-l">Logout</span>
+            <span id="help" class="support-btn float-r">Help</span>
+        </div>
+
+        <div id="current-acc" class="account">
+            <span class="acc-name">Current</span>
+            <span class="acc-amount">&euro;<span id="current-amount"></span></span>
+        </div>
+        <div id="saving-acc" class="account">
+            <span class="acc-name">Saving</span>
+            <span class="acc-amount">&euro;<span id="saving-amount"></span></span>
+        </div>
+        <div id="credit-acc" class="account">
+            <span class="acc-name">Credit</span>
+            <span class="acc-amount">&euro;<span id="credit-amount"></span></span>
+        </div>
+
+        <div class="footer-screen">
+
+        </div>
+    </div>
+    <div id="detail-screen" class="phone-screen">
+        <div class="header-screen">
+            <span id="back" class="support-btn float-l">< Back</span>
+            <span id="help" class="support-btn float-r">Help</span>
+        </div>
+        <div class="details-field">
+            <h3>Current</h3>
+            <div class="detail">
+                <span class="float-l">Balance</span>
+                <span class="float-r" id="detail-balance"></span>
+            </div>
+            <div class="detail">
+                <span class="float-l">Overdraft</span>
+                <span class="float-r" id="detail-overdraft"></span>
+            </div>
+            <div class="detail">
+                <span class="float-l">Account Number</span>
+                <span class="float-r smaller" id="detail-accnum">12345678</span>
+            </div>
+            <div class="detail">
+                <span class="float-l">BIC</span>
+                <span class="float-r smaller" id="detail-bic">BOFIIE2D</span>
+            </div>
+            <div class="detail">
+                <span class="float-l">IBAN</span>
+                <span class="float-r smaller" id="detail-iban">IE64BOFI90583812345678</span>
+            </div>
+        </div>
+        <div class="transaction-field">
+            <h3>Transactions</h3>
+            <div class="transaction">
+                <span class="float-l" id="trans1-name">Apple Green</span>
+                <span class="float-r tnum" id="trans1-amount"></span>
+            </div>
+            <div class="transaction">
+                <span class="float-l" id="trans2-name">Netflix</span>
+                <span class="float-r tnum" id="trans2-amount"></span>
+            </div>
+            <div class="transaction">
+                <span class="float-l" id="trans3-name">Employer</span>
+                <span class="float-r tnum" id="trans3-amount"></span>
+            </div>
+            <div class="transaction">
+                <span class="float-l" id="trans4-name">Tesco</span>
+                <span class="float-r tnum" id="trans4-amount"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div>
+        <p>Copyright &copy; 2016 <a href="https://koltunm.com/matimail">koltunm.com</a> All Rights Reserved.</p>
+    	<p style="color: grey; font-size: 0.8em; clear:both; padding-top: 5px">DCU CA375 Project</p>
+	</div>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="scripts.js"></script>
+<script type="text/javascript" src="voice_control.js"></script>
+</body>
+</html>
