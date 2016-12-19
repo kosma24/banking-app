@@ -2,7 +2,7 @@ const RED = "#d11c0c"
 const GREEN = "#3aa812"
 
 const GUIDELOGIN = "<h4>CA357 HCI Project</h4><p>Welcome to a login screen of the <a href='https://ca357.koltunm.com/'>Phone Banking App</a>. Please keep in mind this is only a prototype design. Its purpose is to demonstrate features improving human-computer interface of the app.</p> <h4>Fingerprint Authentication</h4><p> Drag one of the <span>fingers</span> from the left pane and drop it onto the <span>finger-print area</span> of the phone. This activity invokes the authenticaion process. If the fingerpint matches, the process succeeds and the app displays the next page, otherwise a user is notified about the failure. <br><br> Alternatively...<br><br> Normal login proecedure can also be used. Please enter these dummy credential numbers and click 'Log in' button: <br><br> Registration: <span>12345678</span> <br> PAC: <span>1 2 3</span></p>";
-const GUIDEACCOUNT = "<h4>CA357 HCI Project</h4><p>This screen displays balance of user's accounts.<h4>Voice Control feature</h4><p>A user can query details about their accounts using voice commands.</p><p>For example, to obtain details about the current account, say: <br><br><span>SELECT CURRENT</span><br><span>BALANCE CURRENT</span><br><span>BIC CURRENT</span></p><p>Other commands are:<br><br><span>Logout</span><br><span>Help</span></p>";
+const GUIDEACCOUNT = "<h4>CA357 HCI Project</h4><p>This screen displays balance of user's accounts.<h4>Voice Control feature</h4><p>A user can query details about their accounts using voice commands. <span>Make sure you microphone extension is enabled and volume </span>. </p><p>For example, to obtain details about the current account, say: <br><br><span>SELECT CURRENT</span><br><span>BALANCE CURRENT</span><br><span>BIC CURRENT</span></p><p>Other commands are:<br><br><span>Logout</span><br><span>Help</span></p>";
 const GUIDEDETAILS = "<h4>CA357 HCI Project</h4><p>The details screen contains relevant information about selected account.<h4>Voice commands</h4><p>A user can query specific details about their accounts using voice commands.\
     <br>\
     <br><span>GET BALANCE</span>\
@@ -110,6 +110,9 @@ $("#back").click(function() {
 $("#close-warning").click(function() {
     $("#warning-box").hide(500);
 });
+$("#close-unsupported").click(function() {
+    $("#unsupported").hide(500);
+});
 
 function gotoLogin() {
     STATE = LOGIN;
@@ -154,7 +157,7 @@ function notification(message) {
 function generateAmounts() {
     var current = $("#current-amount");
     var detBalance = $("#detail-balance");
-    current.text(getRandomFloat(-50, 500).toFixed(2));
+    current.text(getRandomFloat(-150, 300).toFixed(2));
     detBalance.text(("\u20AC" + current.text()));
     if (Number(current.text()) < 0) {
         current.css("color", RED);

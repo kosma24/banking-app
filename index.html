@@ -10,25 +10,34 @@
 -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.5.0/annyang.min.js"></script>
 
-  <script type="text/javascript" src="voice_control.js"></script>
+
 
 </head>
 <body>
 
-
+<!-- Warning -->
 <div id="warning-box" hidden>
-    <div class="arrow-up"></div>
+    <div id="arrow" class="arrow-up"></div>
     <div id="warning">
         <div id="close-warning" class="float-r">
             Close
         </div>
-        <p>
+        <p id="warning-text">
             Please make sure you allow microphone extension to work. Do not worry, we are not listening to you... or are we? muahaha.
         </p>
     </div>
 </div>
 
 
+
+<div id="unsupported" hidden>
+    <div id="close-unsupported" class="float-r">
+        Close
+    </div>
+    <p id="unsupported-text">
+        This browser is not supported. Please use Safari or Chrome.<br> Thank you.
+    </p>
+</div>
 
 
 
@@ -57,10 +66,7 @@
 
 
 <!-- RIGHT PANE -->
-<div id="guide" class="float-r" hidden>
-
-
-</div>
+<div id="guide" class="float-r" hidden></div>
 
 
 
@@ -192,5 +198,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script type="text/javascript" src="scripts.js"></script>
+<script type="text/javascript" src="voice_control.js"></script>
 </body>
 </html>
